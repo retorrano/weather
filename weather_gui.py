@@ -1,5 +1,6 @@
 import tkinter as tk
 from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_rain_gauge, get_temperature, get_relative_humidity, get_heat_index
+from settings import check_or_create_settings_db
 
 def start_button_clicked():
     print("Start button clicked")
@@ -17,15 +18,41 @@ def start_button_clicked():
     wind_gust_textfield.insert(0, str(wind_gust))
     rain_gauge = get_rain_gauge()
     rain_gauge_textfield.insert(0, str(rain_gauge))
-    # Add your code here to handle the wind speed input
-    # Add your code here to handle the start button click event
 
+def on_edit_settings():
+    print("Settings menu item clicked")
+
+def on_help_about():
+    print("About menu item clicked")
+
+def on_help_readme():
+    print("Readme menu item clicked")
+
+# Create settings
+check_or_create_settings_db()
 
 # Create the main window
 print("Creating main window")
 window = tk.Tk()
 window.title("Weather Data Input")
 window.geometry("600x600")  # Set the window size to double
+
+# Create the menu bar
+menu_bar = tk.Menu(window)
+
+# Create Edit menu
+edit_menu = tk.Menu(menu_bar, tearoff=0)
+edit_menu.add_command(label="Settings", command=on_edit_settings)
+menu_bar.add_cascade(label="Edit", menu=edit_menu)
+
+# Create Help menu
+help_menu = tk.Menu(menu_bar, tearoff=0)
+help_menu.add_command(label="About", command=on_help_about)
+help_menu.add_command(label="Readme", command=on_help_readme)
+menu_bar.add_cascade(label="Help", menu=help_menu)
+
+# Set the menu bar to the window
+window.config(menu=menu_bar)
 
 # Create the start button
 print("Creating start button")
@@ -64,7 +91,6 @@ wind_direction_textfield.pack(pady=5, fill='x', padx=20)
 print("Creating Wind Speed input")
 wind_speed_label = tk.Label(window, text="Wind Speed")
 wind_speed_label.pack(pady=5)
-wind_speed_textfield = tk.Entry(window)
 wind_speed_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Gust label and textfield
