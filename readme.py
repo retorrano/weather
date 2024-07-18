@@ -5,23 +5,9 @@ class ReadmeGui:
     def __init__(self, parent):
         self.parent = parent
         self.info = (
-            "This application is designed to provide weather data input functionality.\n\n"
-            "Instructions:\n"
-            "1. Click the 'Start' button to begin updating weather data.\n"
-            "2. The data will be fetched and displayed every 5 minutes.\n"
-            "3. You can edit settings through the 'Settings' option in the 'Edit' menu.\n\n"
-            "Features:\n"
-            "- Displays temperature in Celsius.\n"
-            "- Shows heat index and relative humidity.\n"
-            "- Provides wind direction, speed, and gust information.\n"
-            "- Includes a rain gauge measurement.\n"
-            "- Displays the last updated time.\n\n"
-            "Note: This is not an IoT application and not a substitute to sensors.\n\n"
-            "Contact Information:\n"
-            "Created by: Romano E. Torrano\n"
-            "Email: romano.torrano@gmail.com\n"
-            "Facebook: https://facebook.com/retorrano\n"
-            "X: https://x.com/r_torrano\n"
+            "This is an IoT application that retrieves data thru API calls in\"
+            "weatherapi.com, you have to signup in https://www.weatherapi.com.\n"
+            "After signingup, request for API key. Note it down for easy retrieval.\n"
         )
 
     def show_info(self):
