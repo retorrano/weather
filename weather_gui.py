@@ -61,21 +61,21 @@ start_button.pack(pady=10)
 
 # Create the Temperature label and textfield
 print("Creating Temperature input")
-temperature_label = tk.Label(window, text="Temperature")
+temperature_label = tk.Label(window, text="Temperature, Degree Celcius")
 temperature_label.pack(pady=5)
 temperature_textfield = tk.Entry(window)
 temperature_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Heat Index label and textfield
 print("Creating Heat Index input")
-heat_index_label = tk.Label(window, text="Heat Index")
+heat_index_label = tk.Label(window, text="Heat Index, Degree Celcius")
 heat_index_label.pack(pady=5)
 heat_index_textfield = tk.Entry(window)
 heat_index_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Relative Humidity label and textfield
 print("Creating Relative Humidity input")
-relative_humidity_label = tk.Label(window, text="Relative Humidity")
+relative_humidity_label = tk.Label(window, text="Relative Humidity, %")
 relative_humidity_label.pack(pady=5)
 relative_humidity_textfield = tk.Entry(window)
 relative_humidity_textfield.pack(pady=5, fill='x', padx=20)
@@ -89,20 +89,21 @@ wind_direction_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Speed label and textfield
 print("Creating Wind Speed input")
-wind_speed_label = tk.Label(window, text="Wind Speed")
+wind_speed_label = tk.Label(window, text="Wind Speed, kph")
 wind_speed_label.pack(pady=5)
+wind_speed_textfield = tk.Entry(window)
 wind_speed_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Gust label and textfield
 print("Creating Wind Gust input")
-wind_gust_label = tk.Label(window, text="Wind Gust")
+wind_gust_label = tk.Label(window, text="Wind Gust, kph")
 wind_gust_label.pack(pady=5)
 wind_gust_textfield = tk.Entry(window)
 wind_gust_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Rain Gauge label and textfield
 print("Creating Rain Gauge input")
-rain_gauge_label = tk.Label(window, text="Rain Gauge")
+rain_gauge_label = tk.Label(window, text="Rain Gauge, mm")
 rain_gauge_label.pack(pady=5)
 rain_gauge_textfield = tk.Entry(window)
 rain_gauge_textfield.pack(pady=5, fill='x', padx=20)
