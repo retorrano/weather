@@ -9,6 +9,7 @@ class AboutGui:
             "Facebook: https://facebook.com/retorrano\n"
             "X: https://x.com/r_torrano\n\n"
             "Note: This is not an IoT application\n"
+            "and not a substitute to sensors"s
             
         )
 
