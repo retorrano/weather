@@ -1,7 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
+from tokenize import Double
 from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_rain_gauge, get_temperature, get_relative_humidity, get_heat_index, get_last_updated
-from settings import check_or_create_settings_db
+from settings import check_or_create_settings_db, get_settings
 from settings_main_gui import SettingsGUI
 from about import AboutGui
 from readme import ReadmeGui
@@ -61,7 +62,10 @@ def update_weather_data():
     rain_gauge_textfield.config(state='readonly')
     last_updated_textfield.config(state='readonly')
 
-    window.after(30000, update_weather_data)  # Schedule the function to be called again after 60 seconds
+    settings = get_settings()
+    ref_rate = int(settings['refresh_rate']) * 1000
+
+    window.after(ref_rate, update_weather_data)  # Schedule the function to be called again after ref_rate seconds
 
 def start_button_clicked():
     print("Start button clicked")
