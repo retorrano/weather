@@ -4,6 +4,7 @@ from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_r
 from settings import check_or_create_settings_db
 from settings_main_gui import SettingsGUI
 from about import AboutGui
+from readme import ReadmeGui
 
 # Function to update weather data
 def update_weather_data():
@@ -78,6 +79,8 @@ def on_help_about():
 
 def on_help_readme():
     print("Readme menu item clicked")
+    readme_gui = ReadmeGui(window)
+    readme_gui.show_info()
 
 # Create settings
 check_or_create_settings_db()
