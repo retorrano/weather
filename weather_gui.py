@@ -1,26 +1,55 @@
 import tkinter as tk
-from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_rain_gauge, get_temperature, get_relative_humidity, get_heat_index
+from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_rain_gauge, get_temperature, get_relative_humidity, get_heat_index, get_last_updated
 from settings import check_or_create_settings_db
+from settings_main_gui import SettingsGUI
 
-def start_button_clicked():
-    print("Start button clicked")
+# Function to update weather data
+def update_weather_data():
+    print("Updating weather data")
+    
+    temperature_textfield.delete(0, tk.END)
+    heat_index_textfield.delete(0, tk.END)
+    relative_humidity_textfield.delete(0, tk.END)
+    wind_direction_textfield.delete(0, tk.END)
+    wind_speed_textfield.delete(0, tk.END)
+    wind_gust_textfield.delete(0, tk.END)
+    rain_gauge_textfield.delete(0, tk.END)
+    last_updated_textfield.delete(0, tk.END)
+    
     temperature = get_temperature()
     temperature_textfield.insert(0, str(temperature))
+    
     heat_index = get_heat_index()
     heat_index_textfield.insert(0, str(heat_index))
+    
     relative_humidity = get_relative_humidity()
     relative_humidity_textfield.insert(0, str(relative_humidity))
+    
     wind_direction = get_wind_direction()
     wind_direction_textfield.insert(0, str(wind_direction))
+    
     wind_speed = get_wind_speed()
     wind_speed_textfield.insert(0, str(wind_speed))
+    
     wind_gust = get_wind_gust()
     wind_gust_textfield.insert(0, str(wind_gust))
+    
     rain_gauge = get_rain_gauge()
     rain_gauge_textfield.insert(0, str(rain_gauge))
 
+    last_updated = get_last_updated()
+    last_updated_textfield.insert(0, str(last_updated))
+    
+    window.after(300000, update_weather_data)  # Schedule the function to be called again after 60 seconds
+
+def start_button_clicked():
+    print("Start button clicked")
+    update_weather_data()
+
 def on_edit_settings():
     print("Settings menu item clicked")
+    settings_window = tk.Toplevel(window)
+    settings_gui = SettingsGUI(settings_window)
 
 def on_help_about():
     print("About menu item clicked")
@@ -61,14 +90,14 @@ start_button.pack(pady=10)
 
 # Create the Temperature label and textfield
 print("Creating Temperature input")
-temperature_label = tk.Label(window, text="Temperature, Degree Celcius")
+temperature_label = tk.Label(window, text="Temperature, Degree Celsius")
 temperature_label.pack(pady=5)
 temperature_textfield = tk.Entry(window)
 temperature_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Heat Index label and textfield
 print("Creating Heat Index input")
-heat_index_label = tk.Label(window, text="Heat Index, Degree Celcius")
+heat_index_label = tk.Label(window, text="Heat Index, Degree Celsius")
 heat_index_label.pack(pady=5)
 heat_index_textfield = tk.Entry(window)
 heat_index_textfield.pack(pady=5, fill='x', padx=20)
@@ -107,6 +136,13 @@ rain_gauge_label = tk.Label(window, text="Rain Gauge, mm")
 rain_gauge_label.pack(pady=5)
 rain_gauge_textfield = tk.Entry(window)
 rain_gauge_textfield.pack(pady=5, fill='x', padx=20)
+
+# Create the Last Updated label and textfield
+print("Creating Last Updated input")
+last_updated_label = tk.Label(window, text="Last Updated")
+last_updated_label.pack(pady=5)
+last_updated_textfield = tk.Entry(window)
+last_updated_textfield.pack(pady=5, fill='x', padx=20)
 
 # Start the GUI event loop
 print("Starting the GUI event loop")
