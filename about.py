@@ -7,7 +7,9 @@ class AboutGui:
             "Created by: Romano E. Torrano\n"
             "Email: romano.torrano@gmail.com\n"
             "Facebook: https://facebook.com/retorrano\n"
-            "X: https://x.com/r_torrano"
+            "X: https://x.com/r_torrano\n\n"
+            "Note: This is not an IoT application\n"
+            
         )
 
     def show_info(self):
