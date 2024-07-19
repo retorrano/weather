@@ -5,7 +5,7 @@ class ReadmeGui:
     def __init__(self, parent):
         self.parent = parent
         self.info = (
-            "This is an IoT application that retrieves data thru API calls in\"
+            "This is an IoT application that retrieves data thru API calls in\n"
             "weatherapi.com, you have to signup in https://www.weatherapi.com.\n"
             "After signingup, request for API key. Note it down for easy retrieval.\n"
         )
