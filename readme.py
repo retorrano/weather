@@ -5,9 +5,21 @@ class ReadmeGui:
     def __init__(self, parent):
         self.parent = parent
         self.info = (
-            "This is an IoT application that retrieves data thru API calls in\n"
-            "weatherapi.com, you have to signup in https://www.weatherapi.com.\n"
-            "After signingup, request for API key. Note it down for easy retrieval.\n"
+            "This is an IoT application that retrieves data thru API calls in"
+            "weatherapi.com.\n"
+            "Follow these steps:\n"
+            "Step 1. Signup to https://weatherapi.com\n"
+            "Step 2. Request a key (Note it down for easy retrieval).\n"
+            "Step 3. Get your location coordinates. Convert it to decimal degrees.\n"
+            "Step 4. Run the application.\n"
+            "Step 5. In the Edit menu, click Settings.\n"
+            "Step 6. A pop up window will appear. Enter your latitude, longitude, api and refresh rate in seconds, minimum of 60\n"
+            "Step 7. Click Submit.\n"
+            "Step 8. Click Start Button.\n"
+            "\n\n\n"
+            "Note that this is not a substitute to sensors\n"
+
+            
         )
 
     def show_info(self):

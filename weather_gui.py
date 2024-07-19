@@ -61,7 +61,7 @@ def update_weather_data():
     rain_gauge_textfield.config(state='readonly')
     last_updated_textfield.config(state='readonly')
 
-    window.after(300000, update_weather_data)  # Schedule the function to be called again after 60 seconds
+    window.after(30000, update_weather_data)  # Schedule the function to be called again after 60 seconds
 
 def start_button_clicked():
     print("Start button clicked")
