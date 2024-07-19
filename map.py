@@ -7,7 +7,7 @@ def show_map():
     longitude = settings['longitude']
     
     # Construct the Windy.com URL with the latitude and longitude
-    url = f"https://www.windy.com/?{latitude},{longitude},11,m:d16ajxg"
+    url = f"https://www.windy.com/?{latitude},{longitude},11"
     
     # Open the URL in the default web browser
     webbrowser.open(url)
