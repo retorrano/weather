@@ -1,11 +1,22 @@
 import tkinter as tk
+from tkinter import ttk
 from weather_lib import get_wind_direction, get_wind_speed, get_wind_gust, get_rain_gauge, get_temperature, get_relative_humidity, get_heat_index, get_last_updated
 from settings import check_or_create_settings_db
 from settings_main_gui import SettingsGUI
+from about import AboutGui
 
 # Function to update weather data
 def update_weather_data():
     print("Updating weather data")
+    
+    temperature_textfield.config(state='normal')
+    heat_index_textfield.config(state='normal')
+    relative_humidity_textfield.config(state='normal')
+    wind_direction_textfield.config(state='normal')
+    wind_speed_textfield.config(state='normal')
+    wind_gust_textfield.config(state='normal')
+    rain_gauge_textfield.config(state='normal')
+    last_updated_textfield.config(state='normal')
     
     temperature_textfield.delete(0, tk.END)
     heat_index_textfield.delete(0, tk.END)
@@ -40,6 +51,15 @@ def update_weather_data():
     last_updated = get_last_updated()
     last_updated_textfield.insert(0, str(last_updated))
     
+    temperature_textfield.config(state='readonly')
+    heat_index_textfield.config(state='readonly')
+    relative_humidity_textfield.config(state='readonly')
+    wind_direction_textfield.config(state='readonly')
+    wind_speed_textfield.config(state='readonly')
+    wind_gust_textfield.config(state='readonly')
+    rain_gauge_textfield.config(state='readonly')
+    last_updated_textfield.config(state='readonly')
+
     window.after(300000, update_weather_data)  # Schedule the function to be called again after 60 seconds
 
 def start_button_clicked():
@@ -53,6 +73,8 @@ def on_edit_settings():
 
 def on_help_about():
     print("About menu item clicked")
+    about_gui = AboutGui(window)
+    about_gui.show_info()
 
 def on_help_readme():
     print("Readme menu item clicked")
@@ -65,6 +87,16 @@ print("Creating main window")
 window = tk.Tk()
 window.title("Weather Data Input")
 window.geometry("600x600")  # Set the window size to double
+
+# Apply a theme
+style = ttk.Style()
+style.theme_use('clam')  # 'clam', 'alt', 'default', 'classic' are some of the available themes
+
+# Customize the theme to look more like GNOME
+style.configure('TLabel', font=('Helvetica', 12))
+style.configure('TButton', font=('Helvetica', 12))
+style.configure('TEntry', font=('Helvetica', 12))
+style.configure('TMenu', font=('Helvetica', 12))
 
 # Create the menu bar
 menu_bar = tk.Menu(window)
@@ -85,63 +117,63 @@ window.config(menu=menu_bar)
 
 # Create the start button
 print("Creating start button")
-start_button = tk.Button(window, text="Start", command=start_button_clicked)
+start_button = ttk.Button(window, text="Start", command=start_button_clicked)
 start_button.pack(pady=10)
 
 # Create the Temperature label and textfield
 print("Creating Temperature input")
-temperature_label = tk.Label(window, text="Temperature, Degree Celsius")
+temperature_label = ttk.Label(window, text="Temperature, Degree Celsius")
 temperature_label.pack(pady=5)
-temperature_textfield = tk.Entry(window)
+temperature_textfield = ttk.Entry(window)
 temperature_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Heat Index label and textfield
 print("Creating Heat Index input")
-heat_index_label = tk.Label(window, text="Heat Index, Degree Celsius")
+heat_index_label = ttk.Label(window, text="Heat Index, Degree Celsius")
 heat_index_label.pack(pady=5)
-heat_index_textfield = tk.Entry(window)
+heat_index_textfield = ttk.Entry(window)
 heat_index_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Relative Humidity label and textfield
 print("Creating Relative Humidity input")
-relative_humidity_label = tk.Label(window, text="Relative Humidity, %")
+relative_humidity_label = ttk.Label(window, text="Relative Humidity, %")
 relative_humidity_label.pack(pady=5)
-relative_humidity_textfield = tk.Entry(window)
+relative_humidity_textfield = ttk.Entry(window)
 relative_humidity_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Direction label and textfield
 print("Creating Wind Direction input")
-wind_direction_label = tk.Label(window, text="Wind Direction")
+wind_direction_label = ttk.Label(window, text="Wind Direction")
 wind_direction_label.pack(pady=5)
-wind_direction_textfield = tk.Entry(window)
+wind_direction_textfield = ttk.Entry(window)
 wind_direction_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Speed label and textfield
 print("Creating Wind Speed input")
-wind_speed_label = tk.Label(window, text="Wind Speed, kph")
+wind_speed_label = ttk.Label(window, text="Wind Speed, kph")
 wind_speed_label.pack(pady=5)
-wind_speed_textfield = tk.Entry(window)
+wind_speed_textfield = ttk.Entry(window)
 wind_speed_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Wind Gust label and textfield
 print("Creating Wind Gust input")
-wind_gust_label = tk.Label(window, text="Wind Gust, kph")
+wind_gust_label = ttk.Label(window, text="Wind Gust, kph")
 wind_gust_label.pack(pady=5)
-wind_gust_textfield = tk.Entry(window)
+wind_gust_textfield = ttk.Entry(window)
 wind_gust_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Rain Gauge label and textfield
 print("Creating Rain Gauge input")
-rain_gauge_label = tk.Label(window, text="Rain Gauge, mm")
+rain_gauge_label = ttk.Label(window, text="Rain Gauge, mm")
 rain_gauge_label.pack(pady=5)
-rain_gauge_textfield = tk.Entry(window)
+rain_gauge_textfield = ttk.Entry(window)
 rain_gauge_textfield.pack(pady=5, fill='x', padx=20)
 
 # Create the Last Updated label and textfield
 print("Creating Last Updated input")
-last_updated_label = tk.Label(window, text="Last Updated")
+last_updated_label = ttk.Label(window, text="Last Updated")
 last_updated_label.pack(pady=5)
-last_updated_textfield = tk.Entry(window)
+last_updated_textfield = ttk.Entry(window)
 last_updated_textfield.pack(pady=5, fill='x', padx=20)
 
 # Start the GUI event loop
