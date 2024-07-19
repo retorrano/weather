@@ -29,7 +29,7 @@ class SettingsGUI:
         self.longitude_entry.insert(0, str(settings['longitude']))
         
         # API
-        self.api_label = tk.Label(root, text="API:")
+        self.api_label = tk.Label(root, text="API Key:")
         self.api_label.pack(pady=5)
         
         self.api_entry = tk.Entry(root)
