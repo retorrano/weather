@@ -1,5 +1,6 @@
 import tkinter as tk
 import sqlite3
+from tkinter import ttk
 from settings import get_settings
 
 class SettingsGUI:
@@ -46,6 +47,8 @@ class SettingsGUI:
         # Submit button
         self.submit_button = tk.Button(root, text="Submit", command=self.submit)
         self.submit_button.pack(pady=10)
+        style = ttk.Style()
+        style.theme_use('clam')  
         
     def submit(self):
         latitude = self.latitude_entry.get()

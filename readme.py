@@ -13,7 +13,7 @@ class ReadmeGui:
             "Step 3. Get your location coordinates. Convert it to decimal degrees.\n"
             "Step 4. Run the application.\n"
             "Step 5. In the Edit menu, click Settings.\n"
-            "Step 6. A pop up window will appear. Enter your latitude, longitude, api and refresh rate in seconds, minimum of 60\n"
+            "Step 6. A pop up window will appear. Enter your latitude, longitude, api and refresh rate in seconds, minimum of 30\n"
             "Step 7. Click Submit.\n"
             "Step 8. Click Start Button.\n"
             "\n\n\n"
@@ -45,5 +45,7 @@ class ReadmeGui:
 
         # Make the text widget read-only
         text_widget.config(state='disabled')
+        style = ttk.Style()
+        style.theme_use('clam')  
 
         window.mainloop()
