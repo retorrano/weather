@@ -11,6 +11,7 @@ def get_weather_data():
 
     # Construct the URL for the WeatherAPI
     url = f"https://api.weatherapi.com/v1/current.json?q={latitude},{longitude}&key={api_key}"
+    print(url)
 
     # Make the API request
     response = requests.get(url)

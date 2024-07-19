@@ -6,6 +6,7 @@ from settings import check_or_create_settings_db, get_settings
 from settings_main_gui import SettingsGUI
 from about import AboutGui
 from readme import ReadmeGui
+from map import show_map
 
 # Function to update weather data
 def update_weather_data():
@@ -86,6 +87,10 @@ def on_help_readme():
     readme_gui = ReadmeGui(window)
     readme_gui.show_info()
 
+def on_plugins_map():
+    print("Map menu item clicked")
+    show_map()
+
 # Create settings
 check_or_create_settings_db()
 
@@ -119,6 +124,10 @@ help_menu.add_command(label="About", command=on_help_about)
 help_menu.add_command(label="Readme", command=on_help_readme)
 menu_bar.add_cascade(label="Help", menu=help_menu)
 
+# Create plugins menu
+plugins_menu = tk.Menu(menu_bar, tearoff=0)
+plugins_menu.add_command(label="Maps", command=on_plugins_map)
+menu_bar.add_cascade(label="Plugins", menu=plugins_menu)
 # Set the menu bar to the window
 window.config(menu=menu_bar)
 
